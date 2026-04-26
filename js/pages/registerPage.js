@@ -1,5 +1,6 @@
 import { signUp } from "../services/authService.js";
 import { showLoading, hideLoading, notify } from "../services/uiService.js";
+import { appPath } from "../utils/paths.js";
 
 const form = document.getElementById("registerForm");
 let isSubmitting = false;
@@ -36,7 +37,7 @@ form?.addEventListener("submit", async (event) => {
     showLoading("Creating account...");
     await signUp({ email, password, role });
     notify("Account created. Please verify your email and login.", "success");
-    window.location.href = "/login.html";
+    window.location.href = appPath("login.html");
   } catch (error) {
     if (error?.status === 429 || String(error?.message || "").toLowerCase().includes("too many")) {
       setRateLimitCooldown(60);

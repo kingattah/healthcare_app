@@ -1,4 +1,5 @@
 import { supabase } from "../supabaseClient.js";
+import { appPath } from "../utils/paths.js";
 
 export async function signUp({ email, password, role }) {
   const { data, error } = await supabase.auth.signUp({
@@ -53,7 +54,7 @@ export async function getCurrentUserProfile() {
 export async function requireRole(roles = []) {
   const profile = await getCurrentUserProfile();
   if (!profile || !roles.includes(profile.appUser.role)) {
-    window.location.href = "/login.html";
+    window.location.href = appPath("login.html");
     return null;
   }
   return profile;

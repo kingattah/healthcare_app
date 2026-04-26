@@ -3,6 +3,7 @@ import { createSchedule, getDoctorAppointments, setAppointmentStatus } from "../
 import { notify, formatDate, formatTime, showLoading, hideLoading } from "../services/uiService.js";
 import { renderNavbar } from "../../components/navbar.js";
 import { supabase } from "../supabaseClient.js";
+import { appPath } from "../utils/paths.js";
 
 const state = { doctorId: null };
 
@@ -21,7 +22,7 @@ async function init() {
   document.getElementById("navRoot").innerHTML = renderNavbar({ role: "doctor", showLogout: true });
   document.getElementById("logoutBtn")?.addEventListener("click", async () => {
     await signOut();
-    window.location.href = "/login.html";
+    window.location.href = appPath("login.html");
   });
 
   const { data: doctor, error } = await supabase.from("doctors").select("*").eq("user_id", profile.user.id).maybeSingle();

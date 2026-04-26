@@ -1,6 +1,7 @@
 import { getSession, getCurrentUserProfile, signOut } from "../services/authService.js";
 import { notify } from "../services/uiService.js";
 import { renderNavbar } from "../../components/navbar.js";
+import { appPath } from "../utils/paths.js";
 
 const navRoot = document.getElementById("navRoot");
 const ctaRoot = document.getElementById("ctaRoot");
@@ -16,7 +17,7 @@ async function init() {
   const role = profile?.appUser?.role || "";
   navRoot.innerHTML = renderNavbar({ role, showLogout: true });
   ctaRoot.innerHTML = `
-    <a class="btn btn-primary btn-lg" href="/dashboard/${role}.html">Go to ${role} dashboard</a>
+    <a class="btn btn-primary btn-lg" href="${appPath(`dashboard/${role}.html`)}">Go to ${role} dashboard</a>
   `;
   document.getElementById("logoutBtn")?.addEventListener("click", async () => {
     await signOut();

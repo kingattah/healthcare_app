@@ -10,6 +10,7 @@ import {
 import { showLoading, hideLoading, notify, formatDate, formatTime } from "../services/uiService.js";
 import { renderNavbar } from "../../components/navbar.js";
 import { supabase } from "../supabaseClient.js";
+import { appPath } from "../utils/paths.js";
 
 const state = { patientId: null, selectedDoctorId: null, selectedScheduleId: null };
 
@@ -28,7 +29,7 @@ async function init() {
   document.getElementById("navRoot").innerHTML = renderNavbar({ role: "patient", showLogout: true });
   document.getElementById("logoutBtn")?.addEventListener("click", async () => {
     await signOut();
-    window.location.href = "/login.html";
+    window.location.href = appPath("login.html");
   });
 
   const { data: patient, error } = await supabase.from("patients").select("*").eq("user_id", profile.user.id).maybeSingle();

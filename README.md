@@ -27,6 +27,16 @@ Production-ready modular web app using Bootstrap 5 frontend + Supabase Auth/Data
 3. Copy `js/config.example.js` values into `js/config.js`.
 4. Serve the folder with a static server.
 
+## Deploy to GitHub Pages
+1. Push to GitHub.
+2. Open repository settings -> Pages.
+3. Set source to `Deploy from a branch`.
+4. Select branch `main` and folder `/ (root)`.
+5. Save and wait for the deployment URL.
+
+This project uses relative links so it works on GitHub Pages project URLs such as:
+- `https://<username>.github.io/healthcare_app/`
+
 ## Auth + Roles
 - Signup: email/password with role metadata (`patient`, `doctor`, `admin`)
 - `users` table is synced from `auth.users` via trigger

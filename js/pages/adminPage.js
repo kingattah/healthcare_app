@@ -3,6 +3,7 @@ import { getAllUsers, getDoctors, createDoctor, getAppointments, getAnalytics } 
 import { notify, formatDate, formatTime } from "../services/uiService.js";
 import { renderNavbar } from "../../components/navbar.js";
 import { supabase } from "../supabaseClient.js";
+import { appPath } from "../utils/paths.js";
 
 function getStatusClass(status) {
   const value = String(status || "pending").toLowerCase();
@@ -19,7 +20,7 @@ async function init() {
   document.getElementById("navRoot").innerHTML = renderNavbar({ role: "admin", showLogout: true });
   document.getElementById("logoutBtn")?.addEventListener("click", async () => {
     await signOut();
-    window.location.href = "/login.html";
+    window.location.href = appPath("login.html");
   });
 
   document.getElementById("doctorForm")?.addEventListener("submit", handleCreateDoctor);
