@@ -1,6 +1,9 @@
 import { signUp } from "../services/authService.js";
 import { showLoading, hideLoading, notify } from "../services/uiService.js";
 import { appPath } from "../utils/paths.js";
+import { mountAuthSchoolLogo } from "../utils/brand.js";
+
+mountAuthSchoolLogo();
 
 const form = document.getElementById("registerForm");
 let isSubmitting = false;

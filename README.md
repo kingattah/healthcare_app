@@ -1,6 +1,6 @@
-# Online Hospital Appointment Booking and Management System
+# Online Hospital Appointment Booking and Management System (Edo State University Teaching Hospital as a Case Study)
 
-Production-ready modular web app using Bootstrap 5 frontend + Supabase Auth/Database/Realtime backend.
+Production-ready modular web app using Bootstrap 5 frontend + Supabase Auth/Database/Realtime backend. Branding strings (full project name, navigation labels) live in `js/config.js` as `APP_FULL_NAME`, `APP_NAV_TITLE`, and `APP_NAV_SUBTITLE`. Page `<title>` tags use a short “ESUTH hospital appointments” suffix for readability in browser tabs.
 
 ## Stack
 - Frontend: HTML, CSS, JavaScript, Bootstrap 5
